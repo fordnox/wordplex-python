@@ -1,4 +1,5 @@
 import sys
+
 from .wordplex import WordPlex
 
 _format = sys.argv[1]
