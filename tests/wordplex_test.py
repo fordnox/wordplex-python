@@ -1,5 +1,3 @@
-import pytest
-
 from wordplex import Wordplex
 
 wordplex = Wordplex()

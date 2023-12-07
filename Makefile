@@ -8,6 +8,9 @@ install:
 	poetry lock
 	poetry install --with test,dev
 
+example:
+	poetry run python -m wordplex "Porsche-99#"
+
 lint:
 	poetry run black .
 	poetry run isort .

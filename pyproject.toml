@@ -18,6 +18,11 @@ pywatchman = "1.4.1"
 [tool.poetry.group.test.dependencies]
 pytest = "7.4.3"
 
+[tool.pytest.ini_options]
+addopts = "-rsx -v --import-mode=importlib"
+testpaths = [
+    "tests"
+]
 
 [build-system]
 requires = ["poetry-core"]
