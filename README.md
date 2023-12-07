@@ -1,3 +1,7 @@
 # WordPlex
 
     make
+
+## Example
+
+    

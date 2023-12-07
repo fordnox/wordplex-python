@@ -1,8 +1,6 @@
 #!make
 
-ci: install lint test build
-
-all: install lint test build bump release
+all: install lint test
 
 install:
 	poetry lock
@@ -29,6 +27,9 @@ release:
 
 version:
 	poetry version --short
+
+changelog:
+	poetry run towncrier build --yes --version v$(shell poetry version -s)
 
 build:
 	poetry build
