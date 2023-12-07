@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wordplex"
-version = "0.2.3"
+version = "0.2.4"
 description = "WordPlex"
 authors = ["fordnox <fordnox@gmail.com>"]
 license = "MIT"
