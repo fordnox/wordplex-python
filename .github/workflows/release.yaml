@@ -36,7 +36,7 @@ jobs:
         run: |
           git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty='format:* %h %s' --no-merges >> ".github/release_template.md"
       - name: Create Release Draft
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           body_path: ".github/release_template.md"
           draft: true
@@ -44,4 +44,4 @@ jobs:
             dist/wordplex-${{ env.PROJECT_VERSION }}-py3-none-any.whl
             dist/wordplex-${{ env.PROJECT_VERSION }}.tar.gz
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
