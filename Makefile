@@ -9,7 +9,7 @@ install:
 	poetry install --with test,dev
 
 example:
-	poetry run python -m wordplex "Porsche-99#"
+	poetry run python -m wordplex -f "Porsche-99#"
 
 lint:
 	poetry run black .
