@@ -1,3 +1,9 @@
+## wordplex v0.2.5 (2023-12-07)
+
+
+No significant changes.
+
+
 ## wordplex v0.2.4 (2023-12-07)
 
 
