@@ -46,4 +46,3 @@ def test_pattern():
 def test_set_format():
     wp.set_format("CVV")
     assert wp.get_format() == "CVV"
-
