@@ -22,7 +22,7 @@ jobs:
     if: "!startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     env:
-      CI_COMMIT_EMAIL: "ci-runner@openscm-units.invalid"
+      CI_COMMIT_EMAIL: "ci-runner@wordplex.invalid"
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
           token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
 
       # towncrier imports the package as part of building so we have to
-      # install the pacakage (to keep things slim, we only install the main
+      # install the package (to keep things slim, we only install the main
       # dependencies, which also means that we get a test that we can import
       # the package with only the compulsory dependencies installed for free)
       - uses: ./.github/actions/setup
