@@ -33,20 +33,3 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run pytest -s
-
-  tag-release:
-    needs: build
-#    if: ${{ github.repository == 'fordnox/wordplex' }}
-    runs-on: ubuntu-20.04
-
-    permissions:
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v3
-      - run: /usr/bin/git config --global user.email actions@github.com
-      - run: /usr/bin/git config --global user.name 'GitHub Actions Release Tagger'
-      - run: |
-          git commit -m "Release $(shell poetry version -s)"
-          git tag v$(shell poetry version -s)
-          git push origin --tags
