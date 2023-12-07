@@ -1,0 +1,3 @@
+# WordPlex
+
+    make

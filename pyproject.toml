@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "wordplex"
+version = "0.1.0"
+description = "WordPlex"
+authors = ["fordnox <fordnox@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+black = "23.7.0"
+isort = "5.12.0"
+pre-commit = "3.3.3"
+pywatchman = "1.4.1"
+
+[tool.poetry.group.test.dependencies]
+pytest = "7.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
