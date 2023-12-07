@@ -16,26 +16,16 @@ lint:
 test:
 	poetry run pytest
 
-bump:
-	poetry version minor
-
-release:
-	git add .
-	git commit -m "Release $(shell poetry version -s)"
-	git tag v$(shell poetry version -s)
-	git push origin --tags
-
 version:
 	poetry version --short
 
 changelog:
 	poetry run towncrier build --yes --version v$(shell poetry version -s)
 
-build:
+publish-test:
 	poetry build
-
-publish:
-	poetry publish
+	poetry config repositories.testpypi https://test.pypi.org/legacy/
+	poetry publish --no-interaction -r testpypi -u __token__ -p ${PYPI_TOKEN}
 
 clean:
 	rm -rf dist
