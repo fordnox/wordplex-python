@@ -35,6 +35,7 @@ jobs:
         poetry run pytest -s
 
   tag-release:
+    needs: build
 #    if: ${{ github.repository == 'fordnox/wordplex' }}
     runs-on: ubuntu-20.04
 
