@@ -31,6 +31,7 @@ class WordPlex:
         self._format = "VC"
         self._suffix = ""
         self._prefix = ""
+        self.alphabet_symbol = "@"
 
     def reset(self):
         self.set_suffix("")
@@ -57,8 +58,8 @@ class WordPlex:
         for a in word:
             if self.is_positive_integer(a):
                 new_format += "#"
-            if a.lower() == "@":
-                new_format += "@"
+            if a.lower() == self.alphabet_symbol:
+                new_format += self.alphabet_symbol
             if a.lower() in self.vowels:
                 new_format += "V"
             if a.lower() in self.consonants:
@@ -92,7 +93,7 @@ class WordPlex:
                 pattern.append(self.vowels)
             elif letter == "#":
                 pattern.append(self.numbers)
-            elif letter == "@":
+            elif letter == self.alphabet_symbol:
                 pattern.append(self.letters)
             else:
                 pattern.append([letter])

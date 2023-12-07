@@ -39,6 +39,9 @@ def test_pattern():
     wp.set_format("VC")
     assert wp.get_pattern() == [wp.vowels, wp.consonants]
 
+    wp.set_format("@#")
+    assert wp.get_pattern() == [wp.letters, wp.numbers]
+
 
 def test_set_format():
     wp.set_format("CVV")
