@@ -99,6 +99,11 @@ class WordPlex:
                 pattern.append([letter])
         return pattern
 
+    def word_generator(self, dictionary_path="/usr/share/dict/words"):
+        with open(dictionary_path, 'r') as file:
+            for line in file:
+                yield line.strip().lower()
+
     def fill_position(self, pattern, position, length, partial, result, cb=None):
         if position == length - 1:
             for character in pattern[position]:

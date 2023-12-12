@@ -46,3 +46,13 @@ def test_pattern():
 def test_set_format():
     wp.set_format("CVV")
     assert wp.get_format() == "CVV"
+
+
+def test_words():
+    # 312208 words in the dictionary
+    word_generator = wp.word_generator()
+    for _ in range(100):  # Change the number to control how many words to print
+        word = next(word_generator)
+        assert word is not None
+
+
