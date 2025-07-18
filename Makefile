@@ -3,34 +3,33 @@
 all: install lint test
 
 install:
-	poetry lock
-	poetry install --with test,dev
+	uv sync
 
 example:
-	poetry run python -m wordplex -f "Porsche-99#"
+	uv run python -m wordplex -f "Porsche-91#"
 
 lint:
-	poetry run black .
-	poetry run isort .
+	uv run ruff check . --fix
+	uv run mypy .
 
 test:
-	poetry run pytest
+	uv run pytest
 
 version:
-	poetry version --short
+	uv version --short
 
 changelog:
-	poetry run towncrier build --yes --version v$(shell poetry version -s)
+	uv run towncrier build --yes --version v$(shell uv version --short)
 
 publish-test:
-	poetry build
-	poetry config repositories.testpypi https://test.pypi.org/legacy/
-	poetry publish --no-interaction -r testpypi -u __token__ -p ${PYPI_TOKEN}
+	uv build
+	uv config repositories.testpypi https://test.pypi.org/legacy/
+	uv publish --no-interaction -r testpypi -u __token__ -p ${PYPI_TOKEN}
 
 clean:
 	rm -rf dist
 	rm -rf .pytest_cache
-	rm -rf poetry.lock
+	rm -rf uv.lock
 	find . -type f -name '*.pyc' -delete
 
 .PHONY: all build lint test clean
