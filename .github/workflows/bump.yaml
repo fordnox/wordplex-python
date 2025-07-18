@@ -24,11 +24,7 @@ jobs:
     env:
       CI_COMMIT_EMAIL: "ci-runner@wordplex.invalid"
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+      - uses: actions/checkout@v4
 
       # towncrier imports the package as part of building so we have to
       # install the package (to keep things slim, we only install the main
