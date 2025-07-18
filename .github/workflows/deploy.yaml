@@ -21,13 +21,13 @@ jobs:
         with:
           python-version: "3.10"
           venv-id: "deploy"
-          poetry-dependency-install-flags: "--all-extras"
+          uv-dependency-install-flags: "--all-extras"
       - name: Run tests
         run: |
-          poetry run pytest
+          uv run pytest
       - name: Publish to PyPI
         env:
           PYPI_TOKEN: "${{ secrets.PYPI_TOKEN }}"
         run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build --no-interaction
+          uv build
+          uv publish --token $PYPI_TOKEN
